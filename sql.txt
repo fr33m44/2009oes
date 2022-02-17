@@ -1,0 +1,59 @@
+
+#select teacher.id,tid,tname,tpass,dname from teacher,dept where teacher.t_did=dept.did;
+#select student.id,sid,sname,spass,dname from student,dept where student.s_did=dept.did and teacher.id =".$tid."
+#select student.id,sid,sname,spass,dname from student,dept where student.s_did=dept.did
+select * from student
+#select * from teacher
+#delete from teacher where id=4
+#delete from student where id=2
+
+以选课程列表
+select sc_sid,course.cid,course.cname,course.ccapacity,course.cplace,course.ctime,course.ccredit,tname
+from sc,course,student,teacher
+where sc_sid=20720310307
+and sc_sid=student.sid
+and sc_cid=course.cid
+and c_tid=teacher.tid
+
+某门课程选课人员名单
+select sid,sname,score
+from sc,course,student,teacher
+where sc_sid=student.sid
+and sc_cid=course.cid
+and course.c_tid=teacher.tid
+and sc_cid='0003'
+
+某门课程选课人员数量
+select count( sc_cid) from sc,course,student,teacher
+				where sc_sid=student.sid
+				and sc_cid=course.cid
+				and course.c_tid=teacher.tid
+        and sc_cid='0007'
+
+查询某教师教授课程列表
+select distinct sc_cid,cname,ccapacity,cplace,ctime,ccredit from sc,teacher,course
+where tid=c_tid
+and sc_cid=cid
+and tid='20070014'
+ order by sc_cid
+
+
+查询某教师教授课程数量
+select count(distinct sc_cid) from sc,teacher,course
+where tid=c_tid
+and sc_cid=cid
+and tid='20070014'
+ order by sc_cid
+
+查询某课程报名人数
+select count(sid)
+from sc,course,student,teacher
+where sc_sid=student.sid
+and sc_cid=course.cid
+and course.c_tid=teacher.tid
+and sc_cid=0003
+and tid=20070014
+
+查询某学生总学分
+
+

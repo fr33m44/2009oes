@@ -1,0 +1,1 @@
+<div id="footer"><p>powered by apache &amp; php & mysql,code & maintained by <a href="http://techguru.cn" target="_blank">tunpishuang</a> ,copyright 2009&copy; </p></div>
